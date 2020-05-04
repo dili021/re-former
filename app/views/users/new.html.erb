@@ -1,9 +1,4 @@
 <h1> Create a new user</h1>
-<p>
-    <% @user.errors.full_messages.each do |error| %>
-       <p><%= error %></p>
-    <% end %> 
-</p>
 <% if false %>
 <form method='POST' action='/users' accept-charset="UTF-8" >
     <label>Username</label>
@@ -20,7 +15,7 @@
     <input type='submit' value='Save' > %>
 </form> 
 
-<%= form_tag("/users", method: "POST") %>
+<%= form_tag("/users") %>
   <%= label_tag(:username, "username")%>
   <%= text_field_tag(:username)%>
 
@@ -34,15 +29,4 @@
   
 <% end %>
 
-<%= form_for(@user) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  
-  <%= f.submit %>
-<% end %>
+<%= render 'form'%>
