@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-  include UsersHelper
 
   def new
     @user = User.new
   end
 
   def create
-    @user = User.new(param_filter)
+    @user = User.new(user_params)
 
     if @user.save
       redirect_to new_user_path
@@ -21,11 +20,16 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(param_filter)
+    @user.update(user_params)
     if @user.save
       redirect_to edit_user_path(@user)
     else
       render 'edit'
     end
   end
+
+  private def user_params
+    params.require(:user).permit(:email, :username, :password)
+  end
+
 end

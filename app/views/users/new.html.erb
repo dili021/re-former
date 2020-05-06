@@ -15,15 +15,15 @@
     <input type='submit' value='Save' > %>
 </form> 
 
-<%= form_tag("/users") %>
-  <%= label_tag(:username, "username")%>
-  <%= text_field_tag(:username)%>
+<%= form_tag(users_path) %>
+  <%= label_tag("username")%>
+  <%= text_field_tag("username")%>
 
-  <%= label_tag(:email, "email")%>
-  <%= text_field_tag(:email)%>
+  <%= label_tag("email")%>
+  <%= email_field_tag("email")%>
 
-  <%= label_tag(:password, "password")%>
-  <%= password_field_tag(:password)%>
+  <%= label_tag("password")%>
+  <%= password_field_tag("password")%>
 
   <%= submit_tag("Submit") %>
   
