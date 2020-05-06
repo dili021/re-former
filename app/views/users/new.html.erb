@@ -1,0 +1,32 @@
+<h1> Create a new user</h1>
+<% if false %>
+<form method='POST' action='/users' accept-charset="UTF-8" >
+    <label>Username</label>
+    <input type='text' name='user[username]' placeholder='Your username'>
+
+    <label>Email</label>
+    <input type='email' name='user[email]' placeholder='Your email'>
+
+    <label>Password</label>
+    <input type='password' name='user[password]' >
+
+    <input type='hidden' name='authenticity_token' value="<%= form_authenticity_token %>">
+    
+    <input type='submit' value='Save' > %>
+</form> 
+
+<%= form_tag(users_path) %>
+  <%= label_tag("username")%>
+  <%= text_field_tag("username")%>
+
+  <%= label_tag("email")%>
+  <%= email_field_tag("email")%>
+
+  <%= label_tag("password")%>
+  <%= password_field_tag("password")%>
+
+  <%= submit_tag("Submit") %>
+  
+<% end %>
+
+<%= render 'form'%>
